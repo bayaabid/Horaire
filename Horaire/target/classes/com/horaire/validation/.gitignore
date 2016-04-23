@@ -1,0 +1,8 @@
+/EmailExistsException.class
+/EmailValidator.class
+/PasswordConstraintValidator.class
+/PasswordMatches.class
+/PasswordMatchesValidator.class
+/UserValidator.class
+/ValidEmail.class
+/ValidPassword.class
