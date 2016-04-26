@@ -5,7 +5,6 @@ import java.util.UUID;
 
 import javax.transaction.Transactional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -117,7 +116,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void changeUserPassword(final User user, final String password) {
+    public void changeUserPassword(final User user, final String password)  {
         user.setPassword(passwordEncoder.encode(password));
         repository.save(user);
     }
