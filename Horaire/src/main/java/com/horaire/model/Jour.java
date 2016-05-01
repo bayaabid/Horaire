@@ -4,10 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -16,7 +20,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Jour implements Serializable{
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE_JOUR" ,
+					discriminatorType = DiscriminatorType.STRING ,length = 3)
+public abstract class Jour implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -43,7 +50,7 @@ public class Jour implements Serializable{
 	
 	@ManyToMany
 	@JoinTable
-	private List<User>users ;
+	private List<User>users  ;
 
 	public Jour() {
 		super();
