@@ -134,5 +134,11 @@ public class UserService implements IUserService {
         return false;
     }
 
+	@Override
+	public void updateUser(User user) {
+		
+		repository.saveAndFlush(user);
+	}
+
 	
 }

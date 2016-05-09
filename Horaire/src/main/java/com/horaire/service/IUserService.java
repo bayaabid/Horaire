@@ -12,6 +12,8 @@ public interface IUserService {
     User getUser(String verificationToken);
 
     void saveRegisteredUser(User user);
+    
+    void updateUser(User user);
 
     void deleteUser(User user);
 

@@ -1,6 +1,7 @@
 package com.horaire.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +19,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -37,11 +40,15 @@ public abstract class Jour implements Serializable{
 	
 	private String heureDebut ;
 	
-	private String HeureFin ;
+	private String heureFin ;
 	
-	private String fermeture ;
+	private boolean fermeture ;
+	
+	private boolean ouverture ;
+	
 	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat (pattern="dd-MMM-YYYY")
 	private Date dateJour ;
 	
 	@ManyToOne
@@ -50,7 +57,7 @@ public abstract class Jour implements Serializable{
 	
 	@ManyToMany
 	@JoinTable
-	private List<User>users  ;
+	private List<User>users = new ArrayList<>();
 
 	public Jour() {
 		super();
@@ -89,22 +96,22 @@ public abstract class Jour implements Serializable{
 	}
 
 	public String getHeureFin() {
-		return HeureFin;
+		return heureFin;
 	}
 
 	public void setHeureFin(String heureFin) {
-		HeureFin = heureFin;
-	}
-
-	public String getFermeture() {
-		return fermeture;
-	}
-
-	public void setFermeture(String fermeture) {
-		this.fermeture = fermeture;
+		this.heureFin = heureFin;
 	}
 
 	
+
+	public boolean isFermeture() {
+		return fermeture;
+	}
+
+	public void setFermeture(boolean fermeture) {
+		this.fermeture = fermeture;
+	}
 
 	public JourSemaine getJourSemaine() {
 		return jourSemaine;
@@ -128,6 +135,14 @@ public abstract class Jour implements Serializable{
 
 	public void setSemaine(Semaine semaine) {
 		this.semaine = semaine;
+	}
+
+	public boolean isOuverture() {
+		return ouverture;
+	}
+
+	public void setOuverture(boolean ouverture) {
+		this.ouverture = ouverture;
 	}
 	
 	

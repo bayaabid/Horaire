@@ -66,6 +66,7 @@ public class RegistrationController {
         super();
     }
 
+    
     // Registration
 
     @RequestMapping(value = "/user/registration", method = RequestMethod.POST)
