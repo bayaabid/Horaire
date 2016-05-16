@@ -13,6 +13,8 @@ public JourTravail ajouterJourTravail (JourTravail jourTravail);
 	
 	public JourTravail getJourTravail(Date date);
 	
+	public JourTravail getJourTravailById(Long idJourTravail);
+	
 	public JourTravail updatejourTravail(JourTravail jourTravail);
 	
 	public void deleteJourTravail(JourTravail jourTravail);

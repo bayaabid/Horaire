@@ -42,7 +42,7 @@ import com.horaire.web.util.GenericResponse;
 
 @Controller
 public class RegistrationController {
-    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
+   private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private IUserService userService;

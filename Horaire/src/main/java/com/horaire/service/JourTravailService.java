@@ -108,5 +108,11 @@ public class JourTravailService implements IJourTravail {
 		return jourTravailrepository.getSemaineOfJourTravail(date);
 	}
 
+	@Override
+	public JourTravail getJourTravailById(Long idJourTravail) {
+		// TODO Auto-generated method stub
+		return jourTravailrepository.findOne(idJourTravail);
+	}
+
 
 }

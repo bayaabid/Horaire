@@ -13,6 +13,8 @@ public interface IJourDisponible {
 	
 	public JourDisponible getJourDisponible(Date date);
 	
+	public JourDisponible getJourDisponibleById(Long idJourDisponible);
+	
 	public JourDisponible updatejourDidponible(JourDisponible jourDisponible);
 	
 	public void deleteJourDisponible(JourDisponible jourDisponible);

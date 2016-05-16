@@ -61,6 +61,10 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/", "/resources/");
     }
+    /*@Override
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+    	registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/*");
+    }*/
 
     @Override
     public void addInterceptors(final InterceptorRegistry registry) {

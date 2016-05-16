@@ -51,7 +51,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/fonts/**","/fonts-awesome/**","/js/**","/css/**","/login*","/login*", "/logout*", "/signin/**", "/signup/**","/jour/disponible*",
+                .antMatchers("/fonts/**","/fonts-awesome/**","/js/**","/css/**","/login*","/login*", "/logout*", "/signin/**", "/signup/**","/jour*",
                         "/user/registration*", "/regitrationConfirm*", "/expiredAccount*", "/registration*",
                         "/badUser*", "/user/resendRegistrationToken*" ,"/forgetPassword*", "/user/resetPassword*",
                         "/user/changePassword*", "/emailError*", "/resources/**","/old/user/registration*","/successRegister*").permitAll()

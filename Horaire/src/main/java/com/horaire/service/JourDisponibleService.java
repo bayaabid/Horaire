@@ -145,4 +145,10 @@ public class JourDisponibleService implements IJourDisponible {
 		return jourDisponiblerepository.findUsersByHeureFinJourDisponible(heureFin);
 	}
 
+	@Override
+	public JourDisponible getJourDisponibleById(Long idJourDisponible) {
+		// TODO Auto-generated method stub
+		return jourDisponiblerepository.findOne(idJourDisponible);
+	}
+
 }
