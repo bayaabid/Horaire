@@ -21,6 +21,7 @@ import com.horaire.service.IJourDisponible;
 import com.horaire.service.IJourTravail;
 import com.horaire.service.ISemaine;
 import com.horaire.service.IUserService;
+import com.horaire.web.util.JourOfSemaine;
 
 
 @SpringBootApplication
@@ -117,7 +118,8 @@ public class HoraireApplication {
 			System.out.println(jourDisponible.getHeureDebut()+"***************");
 			System.out.println(jourDisponible.getHeureFin());
 		}
-		
+		JourOfSemaine jourOfSemaine = new JourOfSemaine();
+		System.out.println(jourOfSemaine.NomJourSemaine());
 	}
 	
 	@Bean
