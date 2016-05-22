@@ -1,5 +1,7 @@
 package com.horaire.service;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -10,8 +12,11 @@ import com.horaire.validation.ValidPassword;
 
 
 @PasswordMatches
-public class UserDto {
-    @NotNull
+public class UserDto implements Serializable{
+  
+	private static final long serialVersionUID = 1L;
+
+	@NotNull
     @Size(min = 1)
     private String firstName;
 

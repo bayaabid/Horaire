@@ -41,7 +41,14 @@ public class JourDisponibleService implements IJourDisponible {
 	 * */
 	@Override
 	public JourDisponible updatejourDidponible(JourDisponible jourDisponible) {
-		
+		System.out.println("/////////////");
+		System.out.println("///////////////");
+		System.out.println("///////////////////////");
+		System.out.println(jourDisponible.getHeureDebut());
+		System.out.println(jourDisponible.getHeureFin());
+		System.out.println(jourDisponible.getJourSemaine());
+		System.out.println(jourDisponible.getDateJour());
+		System.out.println(jourDisponible.getIdJour());
 		return jourDisponiblerepository.saveAndFlush(jourDisponible);
 	}
 

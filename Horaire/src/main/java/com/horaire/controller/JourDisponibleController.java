@@ -65,7 +65,7 @@ public class JourDisponibleController {
 
 			redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.strategy", result);
 			redirectAttributes.addFlashAttribute("jourDisponible", jourDisponible);
-			return "redirect:/jourDisponible/list";
+			return "redirect:/jourDisponible-list";
 		} else {
 			iJourDisponible.ajouterJourDisponible(jourDisponible);
 			String message = "jourDisponible" + jourDisponible.getIdJour() + " was successfully added";
@@ -77,14 +77,13 @@ public class JourDisponibleController {
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String editStrategyPage(@RequestParam(value = "id", required = true) Long id, Model model) {
 
-		if (!model.containsAttribute("strategy")) {
+		if (!model.containsAttribute("jourDisponible")) {
 
 			JourDisponible jourDisponible = iJourDisponible.getJourDisponibleById(id);
-
-			model.addAttribute("jourDisponible", jourDisponible);
+						model.addAttribute("jourDisponible", jourDisponible);
 		}
 
-		return "strategy-edit";
+		return "jourDisponible-edit";
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
@@ -98,15 +97,16 @@ public class JourDisponibleController {
 
 			redirectAttrs.addFlashAttribute("org.springframework.validation.BindingResult.jourDisponible", result);
 			redirectAttrs.addFlashAttribute("jourDisponible", jourDisponible);
-			return "redirect://edit?id=" + jourDisponible.getIdJour();
+			//return "redirect:/edit?id=" + jourDisponible.getIdJour();
+			return "jourDisponible-edit";
 		} else if (action.equals(messageSource.getMessage("button.action.save", null, Locale.US))) {
-
+			
 			iJourDisponible.updatejourDidponible(jourDisponible);
 			String message = "jourDisponible" + jourDisponible.getIdJour() + " was successfully edited";
 			redirectAttrs.addFlashAttribute("message", message);
 		}
 
-		return "redirect:/strategy/list";
+		return "redirect:/jourDisponible/list";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -119,20 +119,20 @@ public class JourDisponibleController {
 		if (phase.equals(messageSource.getMessage("button.action.cancel", null, Locale.US))) {
 			String message = "Strategy delete was cancelled.";
 			model.addAttribute("message", message);
-			return "redirect:/strategy/list";
+			return "redirect:/jourDisponible/list";
 		} else if (phase.equals(messageSource.getMessage("button.action.stage", null, Locale.US))) {
 			String message = "jourDisponible" + jourDisponible.getIdJour() + " queued for display.";
 			model.addAttribute("jourDisponible", jourDisponible);
 			model.addAttribute("message", message);
-			return "strategy-delete";
+			return "jourDisponible-delete";
 		} else if (phase.equals(messageSource.getMessage("button.action.delete", null, Locale.US))) {
 			iJourDisponible.deleteJourDisponible(jourDisponible);;
 			String message = "Strategy " + jourDisponible.getIdJour() + " was successfully deleted";
 			model.addAttribute("message", message);
-			return "redirect:/strategy/list";
+			return "redirect:/jourDisponible/list";
 		}
 
-		return "redirect:/strategy/list";
+		return "redirect:/jourDisponible/list";
 	}
 
 }

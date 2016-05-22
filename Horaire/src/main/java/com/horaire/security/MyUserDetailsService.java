@@ -90,6 +90,7 @@ public class MyUserDetailsService implements UserDetailsService {
         if (xfHeader == null) {
             return request.getRemoteAddr();
         }
+        
         return xfHeader.split(",")[0];
     }
 }

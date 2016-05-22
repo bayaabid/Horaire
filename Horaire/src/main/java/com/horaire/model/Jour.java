@@ -47,8 +47,8 @@ public abstract class Jour implements Serializable{
 	private boolean ouverture ;
 	
 	
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat (pattern="dd-MMM-YYYY")
+	@Temporal(TemporalType.DATE )
+	@DateTimeFormat (pattern="dd/MM/yyyy")
 	private Date dateJour ;
 	
 	@ManyToOne

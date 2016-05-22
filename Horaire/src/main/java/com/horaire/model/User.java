@@ -1,5 +1,6 @@
 package com.horaire.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -11,10 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-@Entity
-public class User {
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-    @Id
+@Entity
+public class User implements Serializable{
+
+    
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -35,6 +41,7 @@ public class User {
 
     @ManyToMany
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id") , inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id") )
+    @JsonManagedReference
     private Collection<Role> roles;
 
     public User() {

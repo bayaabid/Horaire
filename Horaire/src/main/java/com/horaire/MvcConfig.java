@@ -6,6 +6,7 @@ import java.util.Locale;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -36,6 +37,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/").setViewName("forward:/login");
         registry.addViewController("/login");
         registry.addViewController("/jourDisponible-list.html");
+        registry.addViewController("/jourDisponible-edit.html");
+        registry.addViewController("/jourDisponible-delete.html");
         registry.addViewController("/registration.html");
         registry.addViewController("/logout.html");
         registry.addViewController("/homepage.html");
@@ -101,5 +104,15 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public PasswordMatchesValidator passwordMatchesValidator() {
         return new PasswordMatchesValidator();
     }
+    
+    /*@Bean
+    public CalendarFormatter calendarFormatter() {
+        return new CalendarFormatter();
+    }
 
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addFormatter(calendarFormatter());
+    }
+*/
 }
