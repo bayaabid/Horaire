@@ -28,7 +28,9 @@
 
 
 <body>
-	
+	<!-- <div>
+		<input type="text" id="datepicker" name="endDate" onkeyup="notify()" />
+	</div> -->
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
@@ -49,11 +51,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr data-th-each="jourDisponible : ${joursDisponibles}">
-								<td data-th-text="${jourDisponible.idJour}">1</td>
-								<td data-th-text="*{jourDisponible.dateJour}">Iron
+							<tr data-th-each="jourTravail : ${joursTravails}">
+								<td data-th-text="${jourTravail.idJour}">1</td>
+								<td data-th-text="*{jourTravail.dateJour}">Iron
 									Butterfly</td>
-								<td data-th-text="${jourDisponible.jourSemaine}">Triple
+								<td data-th-text="${jourTravail.jourSemaine}">Triple
 									Butter</td>
 
 								<td>
@@ -66,13 +68,13 @@
 										<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 											<li role="presentation"><a role="menuitem" tabindex="-1"
 												href="#"
-												data-th-href="@{/jourDisponible/edit(id=${jourDisponible.idJour})}">
+												data-th-href="@{/jourTravail/edit(id=${jourTravail.idJour})}">
 													<span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;
 													<span data-th-text="#{button.label.edit}">edit</span>
 											</a></li>
 											<li role="presentation"><a role="menuitem" tabindex="-1"
 												href="#"
-												data-th-href="@{/jourDisponible/delete(id=${jourDisponible.idJour},phase=stage)}">
+												data-th-href="@{/jourTravail/delete(id=${jourTravail.idJour},phase=stage)}">
 													<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;
 													<span data-th-text="#{button.label.delete}">delete</span>
 											</a></li>
@@ -135,8 +137,8 @@
 				<br />
 
 				<form class="form" action="#"
-					data-th-action="@{/jourDisponible/add}"
-					data-th-object="${jourDisponible}" method="post">
+					data-th-action="@{/jourTravail/add}"
+					data-th-object="${jourTravail}" method="post">
 					<div class="table responsive">
 						<table class="no-border-on-me table ">
 							<thead>
